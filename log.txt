@@ -1,0 +1,6 @@
+dino game in JS.
+
+basic  mechanics are made,without any assets being assigned(both dino and the cactus are just divs with color).
+
+
+ 
