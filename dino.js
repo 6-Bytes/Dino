@@ -51,7 +51,8 @@ function jump(){
 
         };
 
-	
+gameInterval
+        
 function checkCollision() {   // function to check collisions
     const dinoRect = dino.getBoundingClientRect(); 
     const obstacleRect = document.querySelector('.plants').getBoundingClientRect();
@@ -66,33 +67,30 @@ function checkCollision() {   // function to check collisions
     }
 }
 
-const gameInterval = setInterval(checkCollision, 50);
-    
-    const obstacleRect = document.querySelector('.plant').getBoundingClientRect();
+var gameInterval = setInterval(checkCollision, 50);
+}	   
+    const obstacleRect = document.querySelector('.plants').getBoundingClientRect();
 
     if (
-        dinoRect.right > obstacleRect.left && // if dino right is greater than 
+        dinoRect.right > obstacleRect.left &&   // if dino right is greater than 
         dinoRect.left < obstacleRect.right &&
         dinoRect.bottom > obstacleRect.top
     ) {
        timer.textContent="Game Over!";
         clearInterval(gameInterval); // Stop the game
     }
-}
 
-const gameInterval = setInterval(checkCollision, 50);
+
+gameInterval = setInterval(checkCollision, 50);
 
 document.addEventListener('keydown',(event)=>{
 	//keydkown == look for keystrokes
         if(event.key ==='w' ||  event.code==='Space'){
             jump();	
-
 	}
 });
+ 
 
 
-	
-
-};
 
 
