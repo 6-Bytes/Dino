@@ -5,13 +5,15 @@ const timer = document.getElementById('timer');
 const pause = document.getElementById('button');
 const dino = document.querySelector(".dino");
 
-const timerInterval= setInterval(()=>{
+dino.style.bottom = '0px'
+
+let timerInterval= setInterval(()=>{
 
 	         timer.textContent=time+"s";time+=1;
 	         pause.onclick=()=>{clearInterval(gameInterval);};
 		                   
                                    },20); 
-clearTimeout(timerInterval);
+/*clearTimeout(timerInterval); */
 	
 
 let jumpin = false;
@@ -24,7 +26,7 @@ function jump(){
                   
 	       if(position>=150){ // if we are at the highest point
                      
-		     clearInterval(upInterval);
+		     clearInterval(upInterval); // clear itself
 
 
 		     // Time Interval to fall	
@@ -49,9 +51,9 @@ function jump(){
 
 		   }},20);
 
-        };
+};
 
-gameInterval
+
         
 function checkCollision() {   // function to check collisions
     const dinoRect = dino.getBoundingClientRect(); 
@@ -64,10 +66,11 @@ function checkCollision() {   // function to check collisions
     ) {
         alert('Game Over!');
         clearInterval(gameInterval); // Stop the game
+        clearInterval(timerInterval); // stop the timer
     }
 }
 
-var gameInterval = setInterval(checkCollision, 50);
+const gameInterval = setInterval(checkCollision, 50);
 }	   
     const obstacleRect = document.querySelector('.plants').getBoundingClientRect();
 
@@ -81,7 +84,7 @@ var gameInterval = setInterval(checkCollision, 50);
     }
 
 
-gameInterval = setInterval(checkCollision, 50);
+// gameInterval = setInterval(checkCollision, 50);
 
 document.addEventListener('keydown',(event)=>{
 	//keydkown == look for keystrokes
